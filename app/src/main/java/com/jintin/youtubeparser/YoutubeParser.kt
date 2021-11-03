@@ -36,7 +36,7 @@ class YoutubeParser @Inject constructor() {
                     ?.optJSONArray("thumbnails")
                     ?.optJSONObject(0)
                     ?.optString("url")
-                    ?.let(list::add).also { println("fdhskl" + it) }
+                    ?.let(list::add)
             }
         } catch (ignore: Exception) {
         }
