@@ -32,10 +32,7 @@ class YoutubeParser @Inject constructor() {
             for (i in (0 until array.length())) {
                 array.optJSONObject(i)
                     ?.optJSONObject("videoRenderer")
-                    ?.optJSONObject("thumbnail")
-                    ?.optJSONArray("thumbnails")
-                    ?.optJSONObject(0)
-                    ?.optString("url")
+                    ?.optString("videoId")
                     ?.let(list::add)
             }
         } catch (ignore: Exception) {
