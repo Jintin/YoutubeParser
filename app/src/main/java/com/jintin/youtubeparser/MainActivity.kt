@@ -1,7 +1,9 @@
 package com.jintin.youtubeparser
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,6 +32,9 @@ class MainActivity : AppCompatActivity() {
         }
         binding.searchButton.setOnClickListener {
             viewModel.search(binding.editText.text.toString())
+            val imm: InputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(binding.editText.windowToken, 0)
         }
         binding.recyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
